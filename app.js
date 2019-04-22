@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 
+app.use(express.json());
+
 const courses = [{ id: 1, name: 'maths' }, { id: 2, name: 'chinese' }, { id: 3, name: 'english' }];
 
 app.get('/', (req, res) => {
@@ -9,6 +11,15 @@ app.get('/', (req, res) => {
 
 app.get('/api/courses', (req, res) => {
   // in real env , get the list of data from database and return them
+  res.send(courses);
+});
+
+app.post('/api/courses', (req, res) => {
+  const course = {
+    id: courses.length + 1,
+    name: req.body.name
+  };
+  courses.push(course);
   res.send(courses);
 });
 
