@@ -4,17 +4,20 @@
   "description": "node.js and express.js example , and having JWT ",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "node src/book/book.js",
+    "server-watch": "nodemon src/book/book.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "joi": "^13.1.0",
     "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
+    "nodemon": "^1.18.11",
     "prettier": "^1.17.0"
   }
 }
