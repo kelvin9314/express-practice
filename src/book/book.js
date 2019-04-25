@@ -3,8 +3,9 @@ const jwt = require('jsonwebtoken');
 const cors = require('cors');
 const categoriesRoute = require('../routes/categories');
 const jwtRoute = require('../routes/jwt');
-const path = require('path')
-const bodyParser = require('body-parser')
+const booksRoute = require('../routes/books')
+const path = require('path');
+const bodyParser = require('body-parser');
 
 const book = express();
 
@@ -17,6 +18,7 @@ book.use((req, res, next) => {
 });
 book.use(categoriesRoute);
 book.use(jwtRoute);
+book.use(booksRoute);
 
 // QueryString => query property on the request object
 // localhost:8080/api?name=kelvin&&age=20

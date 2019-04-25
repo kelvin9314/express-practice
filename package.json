@@ -2,13 +2,13 @@
   "name": "express-practice",
   "version": "1.0.0",
   "description": "node.js and express.js example , and having JWT ",
-  "main": "index.js",
+  "main": "src/book/book.js",
   "scripts": {
     "server": "node src/book/book.js",
     "server-watch": "nodemon src/book/book.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "", 
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
