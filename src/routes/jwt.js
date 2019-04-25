@@ -2,9 +2,9 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
 
-const jwtRequest = express();
+const router = express.Router();
 
-jwtRequest.post('/api/login', (req, res) => {
+router.post('/api/login', (req, res) => {
   // Mock user
   const user = {
     id: 1,
@@ -19,7 +19,7 @@ jwtRequest.post('/api/login', (req, res) => {
   });
 });
 
-jwtRequest.post('/api/posts', verifyToken, (req, res) => {
+router.post('/api/posts', verifyToken, (req, res) => {
   jwt.verify(req.token, 'secretKey', (err, authData) => {
     if (err) {
       res.sendStatus(403);
@@ -56,4 +56,4 @@ function verifyToken(req, res, next) {
   }
 }
 
-module.exports = jwtRequest;
+module.exports = router;

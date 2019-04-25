@@ -26,6 +26,10 @@ router.get('/api/categories/:id', (req, res) => {
   // this.verifyToken()
 });
 
+router.get('/error', (req, res) => {
+  throw new Error('This is a forced error');
+});
+
 router.post('/api/categories', (req, res) => {
   const { error } = validDateCategories(req.body);
   if (error) return res.status(400).send(error.details[0].message);
