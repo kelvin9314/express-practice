@@ -7,7 +7,7 @@ const passsword= '1qaz2wsx';
 
 mongoose.connect(`mongodb+srv://${user}:${passsword}@${server}/${database}`);
 
-let bookSchema = new mongoose.Schema({
+let booksSchema = new mongoose.Schema({
     bookID: {
        type: String,
        require: true,
@@ -57,4 +57,4 @@ let bookSchema = new mongoose.Schema({
     remind: String
 });
 
-module.exports = mongoose.model('book',bookSchema);
+module.exports = mongoose.model('books',booksSchema);

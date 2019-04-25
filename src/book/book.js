@@ -4,14 +4,15 @@ const cors = require('cors');
 const categoriesRoute = require('../routes/categories');
 const jwtRoute = require('../routes/jwt');
 const path = require('path')
+const bodyParser = require('body-parser')
 
 const book = express();
 
 book.use(cors());
-book.use(express.json());
+book.use(bodyParser.json());
 book.use((req, res, next) => {
   // eslint-disable-next-line no-console
-  console.log(`${new Date().toString()} , ${req.method} => ${req.originalUrl}`);
+  console.log(`${new Date().toString()} , ${req.method} => ${req.originalUrl}`, req.body);
   next();
 });
 book.use(categoriesRoute);
@@ -38,6 +39,7 @@ book.use((err, req, res, next) => {
 
   res.sendFile(path.join(__dirname, '../../public/500.html'))
 });
+
 
 const port = process.env.PORT || 8080;
 book.listen(port, () => {
